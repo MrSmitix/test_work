@@ -1,0 +1,17 @@
+[Unit]
+  Description=CPULogger
+
+[Service]
+  ExecStart=/usr/bin/python3 /usr/local/bin/client.py
+  Type=idle
+  KillMode=process
+
+  After=network.target
+
+  SyslogIdentifier=smart-test
+  SyslogFacility=daemon
+
+  Restart=always
+
+[Install]
+  WantedBy=multiuser.target
